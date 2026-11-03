@@ -6,11 +6,11 @@ Implemented: Romanian/world station discovery via Radio Browser; HTTPS personal 
 
 ## Actual validation status
 
-Source, YAML/JSON/plist structure and workflow shell syntax checked locally. No macOS/Xcode exists in this editing environment. Simulator tests, launch, real-device audio, signing, IPA export and TestFlight upload have NOT been executed for this version. The source ZIP is not an installable iPhone app. Publication of these sources to the existing public GitHub repository was blocked by automatic approval review pending the owner's explicit approval.
+Source, YAML/JSON/plist structure and workflow shell syntax checked locally. No macOS/Xcode exists in this editing environment. Signed archive and IPA export succeeded. Apple rejected the first upload because XcodeGen had added an iPad device-family default; this revision explicitly restricts the app target to iPhone and sets the full-screen compatibility flag. Simulator tests and a corrected TestFlight upload remain in progress; real-device audio is not yet tested. The source ZIP is not an installable iPhone app. The owner explicitly approved public publication. The complete source ZIP and root build/distribution workflows have been published to valentinnedelcu1974-arch/RadioOnlinePro.
 
 ## Build
 
-Install Xcode 26.3 and XcodeGen. Run `xcodegen generate`; open RadioOnlinePro.xcodeproj. The shared RadioOnlinePro scheme includes URL validation and station identity tests. `.github/workflows/build.yml` builds/tests on an iPhone simulator, launches the app and saves a validation artifact. A launch smoke test does not validate actual audio or every interaction.
+Download and extract RadioOnlinePro_iOS_Source.zip. Inside RadioOnlinePro, install Xcode 26.3 and XcodeGen. Run `xcodegen generate`; open RadioOnlinePro.xcodeproj. The shared RadioOnlinePro scheme includes URL validation and station identity tests. `.github/workflows/build.yml` builds/tests on an iPhone simulator, launches the app and saves a validation artifact. A launch smoke test does not validate actual audio or every interaction.
 
 ## Same Apple account as Grid Management Pro
 
@@ -24,6 +24,8 @@ TestFlight workflow configuration:
 - Variable `RADIO_PROFILE_NAME`: name of the new profile for this Radio bundle.
 - Secret `RADIO_APPSTORE_PROFILE_BASE64`: the Radio-specific distribution profile.
 - Same secret names as Grid for reusable assets: `IOS_DISTRIBUTION_P12_BASE64`, `IOS_DISTRIBUTION_P12_PASSWORD`, `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_PRIVATE_KEY_BASE64`.
+
+The existing private Valentinnedelcu repository also contains a separate manual radio-testflight.yml workflow. It downloads the public Radio source and uses the existing signing secrets in place, plus a new Radio-specific provisioning profile; credentials remain private. Apple Team ID F3639777XM, bundle registration com.radioonlinepro.player and App Store Connect app 6830363430 have been verified. The RadioOnlinePro_AppStore profile was generated using the existing distribution certificate.
 
 Run the simulator workflow first. Resolve failures. Then run TestFlight manually. Verify both successful upload and Apple processing before inviting an internal tester. No payments are activated by these workflows.
 
