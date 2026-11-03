@@ -8,7 +8,7 @@ Implemented: Romanian/world station discovery via Radio Browser; HTTPS personal 
 
 Source, YAML/JSON/plist and workflow shell syntax passed validation. Xcode 26.3 simulator tests passed (2 tests), the app launched successfully and loaded the Romanian station directory. The real simulator screenshot is included in Preview/RadioOnlinePro-Simulator.png.
 
-The corrected signed archive and IPA export succeeded; App Store Connect accepted version 1.0 build 2 with no upload errors. Apple processing and internal TestFlight availability are checked separately. App Store publication has not occurred. Real iPhone audio, background/lock-screen playback and AirPlay still require device testing. App Review contacts/release choices await the owner's specific approval after an automatic approval-review block. No purchases or subscriptions have been enabled.
+The corrected signed archive and IPA export succeeded; App Store Connect accepted version 1.0 build 2 with no upload errors. Apple processing completed. Build 2 is assigned to the internal group Radio Online Pro - Owner Testing; the account holder is Invited (1 tester, 1 build). The iOS build list shows Ready to Submit for beta review, with one internal invitation. App Store publication has not occurred. Real iPhone audio, background/lock-screen playback and AirPlay still require device testing. App Review contacts/release choices await the owner's specific approval after an automatic approval-review block. No purchases or subscriptions have been enabled.
 
 The first upload was rejected because an XcodeGen default included iPad; the app target now explicitly limits TARGETED_DEVICE_FAMILY to iPhone. The upload script now treats Apple's UPLOAD FAILED text as a failure even if altool returns zero.
 
