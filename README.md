@@ -10,7 +10,11 @@ See [permission register](RIGHTS.md), [privacy](PRIVACY.md) and [support](SUPPOR
 
 ## Validation
 
-Build 2 of the previous unrestricted-directory version is available internally in TestFlight; it is NOT the current rights-restricted candidate and must not be submitted in place of this update. The new candidate requires a fresh simulator test, signed upload, Apple processing and physical iPhone checks. See VALIDATION.txt for current evidence. No App Store publication is claimed.
+The rights-restricted candidate passed Xcode simulator tests and launched successfully. Its real screenshot is in Preview/RadioOnlinePro-Simulator.png. Signed archive/export and App Store Connect upload succeeded for version 1.0 build 3. Build 2 contains the old unrestricted directory and must not be submitted instead. See VALIDATION.txt for evidence and limits. Physical iPhone playback has not been verified. App Store publication has not occurred.
+
+## App Store preparation
+
+Public support/privacy pages, VRT-only listing text and current screenshot have been entered. Free pricing, distribution territories, age rating and privacy labels remain to be finalized. Automated review blocked the worldwide content-rights attestation because the broadcaster's stream publication alone does not establish that broad warranty; see RIGHTS.md for the actual evidence. Free pricing and automatic public release also require explicit owner authorization. No legal warranty or App Store submission is claimed.
 
 ## Build and signing
 

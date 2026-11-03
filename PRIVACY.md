@@ -12,7 +12,7 @@ The app stores saved station names, stream URLs and favorites in local iOS app p
 
 The catalog is bundled with the app. Searching and filtering the catalog happen locally and do not send your search text to a directory. The app no longer connects to Radio Browser.
 
-When you play a station, your iPhone connects directly to VRT's official stream service and broadcaster-controlled delivery servers. Those services receive your IP address and the technical information needed to deliver audio. The developer does not host, record or relay audio. VRT determines its own logging, retention and privacy practices. We cannot promise it retains no connection logs. See VRT's privacy information at https://www.vrt.be/nl/privacy/.
+When you play a station, your iPhone connects directly to VRT's official stream service and broadcaster-controlled delivery servers. Those services receive your IP address and the technical information needed to deliver audio. The developer does not host, record or relay audio. VRT determines its own logging, retention and privacy practices. We cannot promise it retains no connection logs. See VRT's privacy information at https://www.vrt.be/nl/info/privacybeleid.
 
 ## Accounts, tracking and permissions
 

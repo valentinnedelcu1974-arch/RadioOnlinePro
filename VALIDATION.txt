@@ -1,0 +1,14 @@
+2026-11-04 — VRT rights-restricted candidate
+Public source commit: 5ae23b0b85a393481d3dedfae605ea9a0b95674a
+Simulator workflow succeeded: https://github.com/valentinnedelcu1974-arch/RadioOnlinePro/actions/runs/41735787129
+Xcode tests passed, app installed/launched, process verified, real screenshot captured.
+Validation artifact SHA-256: 7575e2fa7da3d40965dd6787868070f3b335de6a79788bb189bb8ae3fc94132a
+Signed archive/export and App Store Connect upload succeeded for build 3.
+Delivery UUID: 0f8a68e4-4cee-4aca-a3d9-4ac73780bbfc
+Private signing run: 41736853497. Credentials reused in place; no credentials included here.
+
+Scope: 21 VRT stations, local search, allowlist migration/playback, no arbitrary stream entry or Radio Browser API.
+Physical iPhone audio, lock-screen, AirPlay and sleep timer acceptance tests remain unverified.
+From the agent network, VRT NWS returned audio; other stream checks returned HTTP 502. These errors do not establish whether the stations work on the user's network.
+
+App Store not submitted/published. Pricing, availability, age rating and privacy labels remain incomplete. Public support/privacy URLs and current screenshot are configured. Broad worldwide content-rights attestation was blocked by automated review; VRT's third-party stream publication is recorded in RIGHTS.md but does not itself establish a worldwide warranty. Free pricing and automatic App Store release require the owner's explicit authorization.
