@@ -1,0 +1,117 @@
+name: Radio Online Pro TestFlight
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: radio-testflight
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: macos-15-intel
+    defaults:
+      run:
+        working-directory: RadioOnlinePro
+    timeout-minutes: 45
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
+      APP_BUNDLE_ID: com.radioonlinepro.player
+      PROFILE_NAME: ${{ vars.RADIO_PROFILE_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack native source
+        working-directory: ${{ github.workspace }}
+        run: unzip -o RadioOnlinePro_iOS_Source.zip
+      - name: Validate signing configuration
+        env:
+          CERT: ${{ secrets.IOS_DISTRIBUTION_P12_BASE64 }}
+          PASS: ${{ secrets.IOS_DISTRIBUTION_P12_PASSWORD }}
+          PROFILE: ${{ secrets.RADIO_APPSTORE_PROFILE_BASE64 }}
+          KEY: ${{ secrets.ASC_KEY_ID }}
+          ISSUER: ${{ secrets.ASC_ISSUER_ID }}
+          PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY_BASE64 }}
+        run: |
+          set -euo pipefail
+          [[ "$APPLE_TEAM_ID" =~ ^[A-Z0-9]{10}$ ]] || { echo 'Missing valid Apple Team ID'; exit 1; }
+          for setting in PROFILE_NAME CERT PASS PROFILE KEY ISSUER PRIVATE_KEY; do
+            test -n "${!setting:-}" || { echo "Missing configuration: $setting"; exit 1; }
+          done
+          xcodebuild -version
+      - name: Install XcodeGen
+        run: command -v xcodegen >/dev/null || brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Install signing assets
+        env:
+          CERT: ${{ secrets.IOS_DISTRIBUTION_P12_BASE64 }}
+          PASS: ${{ secrets.IOS_DISTRIBUTION_P12_PASSWORD }}
+          PROFILE: ${{ secrets.RADIO_APPSTORE_PROFILE_BASE64 }}
+        run: |
+          set -euo pipefail
+          umask 077
+          printf %s "$CERT" | base64 --decode > "$RUNNER_TEMP/radio-cert.p12"
+          printf %s "$PROFILE" | base64 --decode > "$RUNNER_TEMP/radio.mobileprovision"
+          security cms -D -i "$RUNNER_TEMP/radio.mobileprovision" > "$RUNNER_TEMP/radio-profile.plist"
+          python3 - <<'PY'
+          import os, plistlib, datetime
+          with open(os.environ['RUNNER_TEMP']+'/radio-profile.plist','rb') as f: p=plistlib.load(f)
+          assert p['Entitlements']['application-identifier']==os.environ['APPLE_TEAM_ID']+'.'+os.environ['APP_BUNDLE_ID'], 'Profile must match Radio Online Pro'
+          assert p['Name']==os.environ['PROFILE_NAME'], 'Profile name mismatch'
+          assert p['ExpirationDate']>datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None), 'Profile expired'
+          PY
+          KEYCHAIN_PASSWORD=$(openssl rand -hex 24)
+          echo "::add-mask::$KEYCHAIN_PASSWORD"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$RUNNER_TEMP/radio.keychain-db"
+          security set-keychain-settings -lut 21600 "$RUNNER_TEMP/radio.keychain-db"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$RUNNER_TEMP/radio.keychain-db"
+          security import "$RUNNER_TEMP/radio-cert.p12" -k "$RUNNER_TEMP/radio.keychain-db" -P "$PASS" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$RUNNER_TEMP/radio.keychain-db"
+          security list-keychains -d user -s "$RUNNER_TEMP/radio.keychain-db"
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          cp "$RUNNER_TEMP/radio.mobileprovision" "$HOME/Library/MobileDevice/Provisioning Profiles/radio.mobileprovision"
+      - name: Archive
+        run: |
+          xcodebuild -project RadioOnlinePro.xcodeproj -scheme RadioOnlinePro -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -archivePath "$RUNNER_TEMP/RadioOnlinePro.xcarchive" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="$APPLE_TEAM_ID" PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME" CODE_SIGN_IDENTITY='Apple Distribution' CURRENT_PROJECT_VERSION="${{ github.run_number }}" archive
+      - name: Export signed IPA
+        run: |
+          python3 - <<'PY'
+          import os, plistlib
+          options={'method':'app-store-connect','signingStyle':'manual','teamID':os.environ['APPLE_TEAM_ID'],'provisioningProfiles':{os.environ['APP_BUNDLE_ID']:os.environ['PROFILE_NAME']},'uploadSymbols':True}
+          with open(os.environ['RUNNER_TEMP']+'/RadioExport.plist','wb') as f: plistlib.dump(options,f)
+          PY
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/RadioOnlinePro.xcarchive" -exportPath "$RUNNER_TEMP/radio-export" -exportOptionsPlist "$RUNNER_TEMP/RadioExport.plist"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RadioOnlinePro-Signed-IPA
+          path: ${{ runner.temp }}/radio-export/*.ipa
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload to App Store Connect
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_PRIVATE_KEY_BASE64: ${{ secrets.ASC_PRIVATE_KEY_BASE64 }}
+        run: |
+          set -euo pipefail
+          umask 077
+          mkdir -p "$HOME/.appstoreconnect/private_keys"
+          KEY_FILE="$HOME/.appstoreconnect/private_keys/AuthKey_${ASC_KEY_ID}.p8"
+          if [[ "$ASC_PRIVATE_KEY_BASE64" == *"BEGIN PRIVATE KEY"* ]]; then
+            printf %s "$ASC_PRIVATE_KEY_BASE64" > "$KEY_FILE"
+          else
+            printf %s "$ASC_PRIVATE_KEY_BASE64" | tr -d '[:space:]' | base64 --decode > "$KEY_FILE"
+          fi
+          openssl pkey -in "$KEY_FILE" -noout >/dev/null 2>&1
+          IPA=$(find "$RUNNER_TEMP/radio-export" -name '*.ipa' -print -quit)
+          test -n "$IPA"
+          xcrun altool --upload-app --type ios --file "$IPA" --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
+      - name: Clean up signing files
+        if: always()
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+        run: |
+          security delete-keychain "$RUNNER_TEMP/radio.keychain-db" 2>/dev/null || true
+          rm -f "$RUNNER_TEMP/radio-cert.p12" "$RUNNER_TEMP/radio.mobileprovision" "$RUNNER_TEMP/radio-profile.plist"
+          rm -f "$HOME/Library/MobileDevice/Provisioning Profiles/radio.mobileprovision"
+          if [ -n "${ASC_KEY_ID:-}" ]; then rm -f "$HOME/.appstoreconnect/private_keys/AuthKey_${ASC_KEY_ID}.p8"; fi
