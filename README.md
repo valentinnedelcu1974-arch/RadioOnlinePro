@@ -6,7 +6,12 @@ Implemented: Romanian/world station discovery via Radio Browser; HTTPS personal 
 
 ## Actual validation status
 
-Source, YAML/JSON/plist structure and workflow shell syntax checked locally. No macOS/Xcode exists in this editing environment. Signed archive and IPA export succeeded. Apple rejected the first upload because XcodeGen had added an iPad device-family default; this revision explicitly restricts the app target to iPhone and sets the full-screen compatibility flag. Simulator tests and a corrected TestFlight upload remain in progress; real-device audio is not yet tested. The source ZIP is not an installable iPhone app. The owner explicitly approved public publication. The complete source ZIP and root build/distribution workflows have been published to valentinnedelcu1974-arch/RadioOnlinePro.
+Source, YAML/JSON/plist and workflow shell syntax passed validation. Xcode 26.3 simulator tests passed (2 tests), the app launched successfully and loaded the Romanian station directory. The real simulator screenshot is included in Preview/RadioOnlinePro-Simulator.png.
+
+The corrected signed archive and IPA export succeeded; App Store Connect accepted version 1.0 build 2 with no upload errors. Apple processing and internal TestFlight availability are checked separately. App Store publication has not occurred. Real iPhone audio, background/lock-screen playback and AirPlay still require device testing. App Review contacts/release choices await the owner's specific approval after an automatic approval-review block. No purchases or subscriptions have been enabled.
+
+The first upload was rejected because an XcodeGen default included iPad; the app target now explicitly limits TARGETED_DEVICE_FAMILY to iPhone. The upload script now treats Apple's UPLOAD FAILED text as a failure even if altool returns zero.
+
 
 ## Build
 
@@ -27,7 +32,7 @@ TestFlight workflow configuration:
 
 The existing private Valentinnedelcu repository also contains a separate manual radio-testflight.yml workflow. It downloads the public Radio source and uses the existing signing secrets in place, plus a new Radio-specific provisioning profile; credentials remain private. Apple Team ID F3639777XM, bundle registration com.radioonlinepro.player and App Store Connect app 6830363430 have been verified. The RadioOnlinePro_AppStore profile was generated using the existing distribution certificate.
 
-Run the simulator workflow first. Resolve failures. Then run TestFlight manually. Verify both successful upload and Apple processing before inviting an internal tester. No payments are activated by these workflows.
+For this existing Apple account, use the private radio-testflight.yml workflow to reuse credentials in place. The public standalone testflight.yml requires its own configured secrets. Run the simulator workflow first. Resolve failures. Then run TestFlight manually. Verify both successful upload and Apple processing before inviting an internal tester. No payments are activated by these workflows.
 
 ## Physical iPhone acceptance tests
 
