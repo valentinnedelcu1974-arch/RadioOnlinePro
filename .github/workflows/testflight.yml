@@ -105,7 +105,8 @@ jobs:
           openssl pkey -in "$KEY_FILE" -noout >/dev/null 2>&1
           IPA=$(find "$RUNNER_TEMP/radio-export" -name '*.ipa' -print -quit)
           test -n "$IPA"
-          xcrun altool --upload-app --type ios --file "$IPA" --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
+          xcrun altool --upload-app --type ios --file "$IPA" --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID" 2>&1 | tee "$RUNNER_TEMP/radio-upload.log"
+          if grep -qi "UPLOAD FAILED" "$RUNNER_TEMP/radio-upload.log"; then exit 1; fi
       - name: Clean up signing files
         if: always()
         env:
