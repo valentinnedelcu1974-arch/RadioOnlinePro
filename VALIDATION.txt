@@ -1,1 +1,22 @@
-FREE-LICENSE CATALOG CANDIDATE: Xcode validation pending. HTTPS stream probed successfully as MP3 160 kbps; actual live title metadata received. 149 release and 1099 track license fields inspected, all CC BY 3.0. Live metadata endpoint/source mapping checked. No physical iPhone playback or provider/store approval claimed.
+FREE-LICENSE MDK CANDIDATE — VALIDATED 4 November 2026
+Implementation commit: 27c2c614785ec9918f8ead3bd737d6e3cb1ba702.
+Simulator workflow SUCCESS: total 22m 35s; job 22m 29s.
+https://github.com/valentinnedelcu1974-arch/RadioOnlinePro/actions/runs/41849568575
+Six XCTest methods, install, launch/process check and simulator screenshot succeeded. The simulator startup was slow; the test/launch steps completed successfully. Artifact SHA256: 4d13199c8ba44b8656c57ff0e5fc29fa3f5aa6c14032c17139803019748b9cb0. The downloaded artifact matched this digest; its actual screenshot is included in Preview.
+
+Signed archive/export/upload SUCCESS:
+https://github.com/valentinnedelcu1974-arch/Valentinnedelcu/actions/runs/41849820728
+Version 1.0 build 6; delivery UUID 46e1201d-5cda-4b2f-a090-346f438e18ed.
+Apple web reauthentication did not complete: the secure password request expired. Post-upload processing/group assignment and App Store metadata/build selection have not been reverified. No App Store publication is claimed.
+
+HTTPS live stream probed as MP3 160 kbps with track metadata. Three seconds decoded successfully by FFmpeg. Metadata endpoint returned fresh data (about 3 seconds old), with a matching licensed source page. All 149 release and 1099 track license fields in the official manifest were CC BY 3.0. See RIGHTS.md for primary evidence, attribution conditions and limits.
+
+VRT is removed. One MDK radio channel is enabled; archive albums are not separate stations. No paid license purchased. Commercial audio rights flag reflects the reviewed closed CC BY catalog; live ad serving remains blocked by publisher readiness=false. Google account was still under review on last check; payment profile was complete. Provider/store approval, physical-iPhone playback and live advertising are not claimed.
+
+Validated code/resource SHA-256 (subsequent updates are documentation/screenshot only):
+4aedb8e30363579204024cc2e5b5ce47561ea67a6df3f572510dab65a27651e4  RadioOnlineProApp.swift
+f1a59001b1e94d04bab3c0bf84ba1fde5919ccf39ff6d372ef177d28331ad715  Advertising.swift
+28868edc4cb72c01d66298853c8442cefe9f39ee1c0bce17be71f6593ec9d8c1  MDKAttribution.swift
+e82fd9d2062cc6f0dfcbc9d508a1eeb36aa18fc9bf94ed736e1a75e12f58a3c6  MDKLicensedReleases.json
+d5b94306fd49c5044353380d5ecb3fb175fc064c7155d865599f5891966a3dc7  project.yml
+6260bebc120592b5891cd7a10b1df5536019967ea8faac6fd4ae7b3e938c3240  Tests/RadioOnlineProTests.swift
