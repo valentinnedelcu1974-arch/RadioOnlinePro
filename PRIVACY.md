@@ -16,7 +16,15 @@ When you play a station, your iPhone connects directly to VRT's official stream 
 
 ## Accounts, tracking and permissions
 
-Version 1.0 has no account registration, advertising SDK, analytics SDK, developer-operated user database, purchases or subscriptions. It does not request your location, contacts, photos, camera or microphone. It does not record audio. Favorites remain local. The developer does not sell app-user data or use it for advertising tracking.
+The advertising integration candidate includes Google Mobile Ads SDK 13.12.0 and Google User Messaging Platform 3.1.0. Commercial advertising is disabled in the shipped configuration. It has no account registration, analytics SDK, developer-operated user database, purchases or subscriptions. It does not request your location, contacts, photos, camera or microphone. It does not record audio. Favorites remain local. The developer does not sell app-user data or use it for advertising tracking.
+
+## Optional advertising test and future commercial advertising
+
+Opening the app does not initialize Google advertising or contact Google for ads while commercial advertising is disabled. In About & privacy, you may explicitly start the Google test banner. This establishes connections to Google and requests consent information. Google may process IP address (including approximate location derived from it), device/app information, technical identifiers, diagnostics and ad interaction data under https://policies.google.com/privacy and https://developers.google.com/admob/ios/privacy/data-disclosure. Test ads generate no developer income. You can stop the test; this removes the banner and prevents additional requests from this app, but does not erase data already transmitted.
+
+Before requesting ads, the app refreshes UMP consent information and presents Google's form when required. A privacy-options button is available when required by UMP. If consent cannot be verified, no ad request is made. Radio playback is available without starting the advertising test. Requests are marked nonpersonalized, publisher first-party ID is disabled, and the app does not request tracking authorization or access IDFA. Nonpersonalized advertising can still involve personal data; it is not a promise of zero collection.
+
+Commercial advertising requires verified publisher settings, commercial broadcast rights, production identifiers, configured consent messages, app-ads.txt verification and updated App Store privacy disclosures. It is not approved or enabled by this candidate. Google and Apple control their own review decisions.
 
 ## Support requests
 

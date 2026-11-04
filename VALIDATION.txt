@@ -1,3 +1,5 @@
+ADVERTISING CANDIDATE: SDK integration added; new simulator validation pending. Prior build 3 results below apply only to the earlier ad-free binary. No live ads or provider approval claimed.
+
 2026-11-04 — VRT rights-restricted candidate
 Public source commit: 5ae23b0b85a393481d3dedfae605ea9a0b95674a
 Simulator workflow succeeded: https://github.com/valentinnedelcu1974-arch/RadioOnlinePro/actions/runs/41735787129
