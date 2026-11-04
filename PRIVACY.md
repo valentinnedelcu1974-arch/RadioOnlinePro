@@ -16,7 +16,7 @@ When you play a station, your iPhone connects directly to VRT's official stream 
 
 ## Accounts, tracking and permissions
 
-The advertising integration candidate includes Google Mobile Ads SDK 13.12.0 and Google User Messaging Platform 3.1.0. Commercial advertising is disabled in the shipped configuration. It has no account registration, analytics SDK, developer-operated user database, purchases or subscriptions. It does not request your location, contacts, photos, camera or microphone. It does not record audio. Favorites remain local. The developer does not sell app-user data or use it for advertising tracking.
+The advertising integration candidate includes Google Mobile Ads SDK 13.12.0 and Google User Messaging Platform 3.1.0. Commercial advertising is disabled in the shipped configuration. It has no account registration, separate analytics SDK such as Firebase Analytics, developer-operated user database, purchases or subscriptions. Google advertising SDK diagnostics and analytics processing are described below. It does not request your location, contacts, photos, camera or microphone. It does not record audio. Favorites remain local. The developer does not sell app-user data or use it for advertising tracking.
 
 ## Optional advertising test and future commercial advertising
 

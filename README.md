@@ -28,4 +28,4 @@ Play multiple VRT streams; test station switching, pause/resume, reconnect, offl
 
 ## Advertising candidate
 
-See MONETIZATION.md for production prerequisites and test behavior. The earlier build 3 validation does not validate this SDK integration. Run the new CI before distributing this candidate.
+See MONETIZATION.md for production prerequisites and test behavior. The advertising integration passed simulator CI (run 41770631892). Signed build 4 was uploaded successfully and processed by App Store Connect; it is associated with the internal Owner Testing group. Commercial ads and publisher approval remain pending. See VALIDATION.txt for evidence and remaining limits.

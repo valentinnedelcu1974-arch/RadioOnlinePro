@@ -17,4 +17,8 @@ Commercial ads are OFF. The Info.plist uses Google's sample application ID; the 
 7. Run simulator tests and device consent/ad tests with test devices. Never click live ads. Verify portrait layout, no-fill/offline behavior, consent changes, screen reader, interruptions and background playback. Rebuild and select the new binary for App Review.
 8. After Apple publishes the app, link its actual public App Store listing to AdMob. Google initiates app readiness review; no agent can grant approval. Apple paid-app tax/bank completion does not configure Google advertising payouts.
 
+COMMERCIAL_PERMISSION_REQUEST_DRAFT.md contains an unsent permission request for the broadcaster.
+
+A vendor-manifest worksheet is provided in PRIVACY_DISCLOSURE_DRAFT.md. It is not a completed App Store privacy submission.
+
 Sources: https://developers.google.com/admob/ios/quick-start ; https://developers.google.com/admob/ios/privacy ; https://developers.google.com/admob/ios/banner ; https://support.google.com/admob/answer/10564477

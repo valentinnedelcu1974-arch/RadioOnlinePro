@@ -1,4 +1,26 @@
-ADVERTISING CANDIDATE: SDK integration added; new simulator validation pending. Prior build 3 results below apply only to the earlier ad-free binary. No live ads or provider approval claimed.
+ADVERTISING INTEGRATION — 4 November 2026
+
+Implementation commit: 90fa68c83f35d5cf99768417847b55acea555c3f
+Simulator CI: SUCCESS, duration 10m 8s.
+https://github.com/valentinnedelcu1974-arch/RadioOnlinePro/actions/runs/41770631892
+Xcode build/test, simulator install, launch/process check and screenshot artifact completed.
+Five XCTest methods include the production advertising activation prerequisites.
+Live advertising, UMP production message configuration and real-device banner display have NOT been verified; AdMob account activation is waiting on a new agreement.
+
+Signed archive/export/upload: SUCCESS.
+https://github.com/valentinnedelcu1974-arch/Valentinnedelcu/actions/runs/41770939991
+Version 1.0 build 4, delivery UUID 8cb83126-72b2-4bd6-a500-dc1db0179514.
+App Store Connect processing complete: Ready to Submit; associated with internal Owner Testing group. Test instructions saved. This is not App Store publication or external beta/ad approval.
+Commercial advertising flags remain false; sample Google app ID and optional test banner only. VRT commercial permission and publisher readiness are not established. Google account terms have not been accepted by the agent.
+
+The documentation update after CI changes no Swift source, tests or project configuration. SHA-256 of validated code/config:
+6f452fbd6dc67861b96a4db73d60d70e7dbc7af97efd44bab3301e4a9ef82f5f  Advertising.swift
+9393e362f116d187cc312d12c23399208b2f5e50f3953bd6b405a1dc41b60382  RadioOnlineProApp.swift
+24d0e39c82a87602b9555c8618f3bd712febdc79bcbb5b3e80ddae95667cc2a6  project.yml
+226ddedc406e936034a0418bc7acf4576ac75680db3ff88f72bd4d46b94433ec  Tests/RadioOnlineProTests.swift
+
+
+Prior build 3 results below apply only to the earlier ad-free binary. No live ads or provider approval claimed.
 
 2026-11-04 — VRT rights-restricted candidate
 Public source commit: 5ae23b0b85a393481d3dedfae605ea9a0b95674a
