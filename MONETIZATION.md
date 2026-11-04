@@ -23,4 +23,6 @@ A vendor-manifest worksheet is provided in PRIVACY_DISCLOSURE_DRAFT.md. It is no
 
 Sources: https://developers.google.com/admob/ios/quick-start ; https://developers.google.com/admob/ios/privacy ; https://developers.google.com/admob/ios/banner ; https://support.google.com/admob/answer/10564477
 
-The exact app-ads.txt line supplied by AdMob is prepared in app-ads.txt, but hosting at the root of the App Store developer website and crawler verification remain pending. ADVERTISING_ACCOUNT_SETUP.json records the actual identifiers and status; these identifiers are public configuration, not credentials. No broadcast-rights email has been sent.
+The exact app-ads.txt line supplied by AdMob is hosted at https://valentinnedelcu1974-arch.github.io/app-ads.txt and was checked for HTTPS 200 and exact content. The App Store developer website must be associated with this domain and Google must crawl/verify it. That association and crawler verification are not claimed. ADVERTISING_ACCOUNT_SETUP.json records the actual identifiers and status; these identifiers are public configuration, not credentials. No broadcast-rights email has been sent.
+
+US privacy choices message is also published. Build 5 with the actual registered AdMob identifiers passed simulator CI and was uploaded successfully to Apple. Apple web session expired before processing/group status could be rechecked. No live ad requests or revenue enabled.

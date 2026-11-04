@@ -29,3 +29,7 @@ Play multiple VRT streams; test station switching, pause/resume, reconnect, offl
 ## Advertising candidate
 
 See MONETIZATION.md for production prerequisites and test behavior. The advertising integration passed simulator CI (run 41770631892). Signed build 4 was uploaded successfully and processed by App Store Connect; it is associated with the internal Owner Testing group. Commercial ads and publisher approval remain pending. See VALIDATION.txt for evidence and remaining limits.
+
+## Registered advertising account and build 5
+
+AdMob account/app/banner created, real identifiers integrated, EU and US privacy messages published. Build 5 passed simulator CI and was uploaded successfully to Apple; post-upload processing is not reverified because the Apple web session expired. Commercial ads remain OFF pending content rights, publisher/app approval and store-domain verification. Developer support site and app-ads.txt are live at https://valentinnedelcu1974-arch.github.io/ . See ADVERTISING_ACCOUNT_SETUP.json and VALIDATION.txt. No broadcaster permission request has been sent.

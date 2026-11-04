@@ -1,4 +1,26 @@
-BUILD 5 CANDIDATE: real AdMob account/app/banner IDs and matching consent test support added. New CI pending. Earlier build 4 validation below does not validate these latest code/config changes. Commercial flags remain false.
+REGISTERED ADMOB CONFIGURATION — 4 November 2026
+Implementation commit: 77a060a079347975b26ea3d6f6877f21ecbecbcd.
+Simulator CI SUCCESS (job 10m 18s):
+https://github.com/valentinnedelcu1974-arch/RadioOnlinePro/actions/runs/41837044986
+Xcode tests, simulator install/launch/process check and screenshot artifact passed.
+Signed archive/export/upload SUCCESS:
+https://github.com/valentinnedelcu1974-arch/Valentinnedelcu/actions/runs/41837122250
+Version 1.0 build 5. Delivery UUID: 8a9bfe6a-5b8b-47cf-b45b-edd0997f655d.
+Post-upload Apple processing and build 5 group assignment were NOT reverified: App Store Connect web session expired. The previous build 4 internal group was verified. No public App Store release occurred.
+
+AdMob account created and verification pending. Radio Online Pro iOS app and catalog banner unit created. Real app/unit IDs integrated; commercial rights and publisher readiness gates remain FALSE. Test requests always use Google's test banner, even with the real application ID for consent.
+European privacy message PUBLISHED (English + Romanian), refusal button enabled in all regions. RTB partner consent checking ON; legitimate-interest choices not on by default. US privacy choices message PUBLISHED.
+Developer site: https://valentinnedelcu1974-arch.github.io/
+Exact Google-supplied app-ads.txt hosted at root and verified HTTPS 200 with exact content. App Store developer-domain association and Google crawler verification remain pending. This is not broadcaster commercial permission or advertising approval.
+Physical iPhone consent/banner display is not verified. Publisher/app readiness approval and VRT commercial permission remain outstanding. No VRT email sent.
+
+Validated code/config SHA-256 (documentation-only updates after CI):
+5c411f6c7a4e778c6d9adb1b00851ef8ccdad03dc95d974d4b2e1feb2bd784f0  Advertising.swift
+9393e362f116d187cc312d12c23399208b2f5e50f3953bd6b405a1dc41b60382  RadioOnlineProApp.swift
+0896cbad298930f948129d53b1847917eff58fdfa0cac638eaacbb0bbd468795  project.yml
+42f0207ec1a43a1249c9513a66981dd62442b8dbe01e7c5b9a527de0a98cd11e  Tests/RadioOnlineProTests.swift
+
+Earlier build evidence:
 
 ADVERTISING INTEGRATION — 4 November 2026
 

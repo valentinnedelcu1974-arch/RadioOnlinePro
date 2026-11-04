@@ -13,5 +13,7 @@
   ],
   "commercial_streaming_permission": false,
   "commercial_ads_enabled": false,
-  "app_ads_txt": "prepared_not_hosted_or_verified"
+  "app_ads_txt": "hosted_pending_store_domain_link_and_google_crawl",
+  "us_privacy_message": "published",
+  "developer_website": "https://valentinnedelcu1974-arch.github.io/"
 }
