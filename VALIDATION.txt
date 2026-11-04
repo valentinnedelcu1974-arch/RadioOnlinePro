@@ -1,3 +1,5 @@
+BUILD 5 CANDIDATE: real AdMob account/app/banner IDs and matching consent test support added. New CI pending. Earlier build 4 validation below does not validate these latest code/config changes. Commercial flags remain false.
+
 ADVERTISING INTEGRATION — 4 November 2026
 
 Implementation commit: 90fa68c83f35d5cf99768417847b55acea555c3f

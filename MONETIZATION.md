@@ -4,7 +4,7 @@ Google Mobile Ads 13.12.0 and UMP 3.1.0 are pinned through official Swift packag
 
 ## Current state
 
-Commercial ads are OFF. The Info.plist uses Google's sample application ID; the production banner ID is empty. Both RadioCommercialRightsConfirmed and RadioPublisherSetupComplete are false. Launch makes no ad or consent request in this configuration. About & privacy offers an explicit Google test banner; it cannot earn revenue. Stopping it removes the view. Consent errors do not disable radio.
+Commercial ads are OFF. The AdMob account was created and is under Google verification. The European consent message is published in English and Romanian, with a refusal button in all regions. RTB creative consent checking is enabled and legitimate-interest choices are not enabled by default. The Info.plist now contains the real Radio Online Pro app and banner IDs created in the owner's AdMob account. Explicit test mode still requests only Google's test banner ID. Both RadioCommercialRightsConfirmed and RadioPublisherSetupComplete are false. Launch makes no ad or consent request in this configuration. About & privacy offers an explicit Google test banner; it cannot earn revenue. Stopping it removes the view. Consent errors do not disable radio.
 
 ## Production release prerequisites
 
@@ -22,3 +22,5 @@ COMMERCIAL_PERMISSION_REQUEST_DRAFT.md contains an unsent permission request for
 A vendor-manifest worksheet is provided in PRIVACY_DISCLOSURE_DRAFT.md. It is not a completed App Store privacy submission.
 
 Sources: https://developers.google.com/admob/ios/quick-start ; https://developers.google.com/admob/ios/privacy ; https://developers.google.com/admob/ios/banner ; https://support.google.com/admob/answer/10564477
+
+The exact app-ads.txt line supplied by AdMob is prepared in app-ads.txt, but hosting at the root of the App Store developer website and crawler verification remain pending. ADVERTISING_ACCOUNT_SETUP.json records the actual identifiers and status; these identifiers are public configuration, not credentials. No broadcast-rights email has been sent.

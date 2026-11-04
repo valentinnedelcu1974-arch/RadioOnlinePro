@@ -1,0 +1,17 @@
+{
+  "platform": "iOS",
+  "name": "Radio Online Pro",
+  "bundle_id": "com.radioonlinepro.player",
+  "app_id": "ca-app-pub-2792865707760596~4682819686",
+  "banner_ad_unit_id": "ca-app-pub-2792865707760596/3872300890",
+  "account_review": "pending",
+  "app_review": "requires_public_store_listing",
+  "european_privacy_message": "published",
+  "languages": [
+    "en",
+    "ro"
+  ],
+  "commercial_streaming_permission": false,
+  "commercial_ads_enabled": false,
+  "app_ads_txt": "prepared_not_hosted_or_verified"
+}
