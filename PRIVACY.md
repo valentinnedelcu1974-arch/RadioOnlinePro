@@ -12,7 +12,7 @@ The app stores saved station names, stream URLs and favorites in local iOS app p
 
 The catalog is bundled with the app. Searching and filtering the catalog happen locally and do not send your search text to a directory. The app no longer connects to Radio Browser.
 
-When you play a station, your iPhone connects directly to VRT's official stream service and broadcaster-controlled delivery servers. Those services receive your IP address and the technical information needed to deliver audio. The developer does not host, record or relay audio. VRT determines its own logging, retention and privacy practices. We cannot promise it retains no connection logs. See VRT's privacy information at https://www.vrt.be/nl/info/privacybeleid.
+The app includes one MDK Space Radio channel. Playback connects directly to https://radio.mdkband.com/stream.mp3. To display attribution and check its licensed source, the app requests https://radio.mdkband.com/now-playing.json before playback and about every 20 seconds while active. Those servers receive your IP address and connection details. We do not control or promise the absence of provider logs. Track/source/license records are bundled; the app does not load album artwork or connect to Internet Archive merely to show credits. Opening a source link uses the browser and that site receives normal browser connection data. No VRT audio connections remain.
 
 ## Accounts, tracking and permissions
 

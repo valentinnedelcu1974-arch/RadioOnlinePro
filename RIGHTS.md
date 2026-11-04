@@ -1,41 +1,15 @@
-# Broadcaster permission register — Radio Online Pro
+# Free commercial-use music register — MDK catalog
 
-Reviewed 4 November 2026. Catalog: VRT only.
+Reviewed 4 November 2026. No paid license or subscription purchased. VRT removed.
 
-Source: https://www.vrt.be/nl/ons-aanbod/streamingslinks-radio
+Enabled source: MDK Space Radio, https://radio.mdkband.com/stream.mp3 . The official player credits music to MDK (Mik Schuppin, Diego Madero & Kai Kraatz), links CC BY 3.0, and links its canonical source repository https://github.com/sigilabcodex/mdk-space-radio . We use no artist logos, artwork, or frontend code.
 
-VRT explains that smaller apps and services carry its streams and publishes the stream URLs so listening through those services can continue. We interpret this publication as permission for direct, unmodified listening through this free app. This is not a transfer of ownership or permission to record, rehost, sell broadcasts, use VRT logos, or claim endorsement. No logos are included. Google advertising and consent SDKs are integrated, with commercial ads disabled and only an explicit optional test available. No paid access is included. VRT general terms (https://www.vrt.be/nl/info/gebruiksvoorwaarden) restrict use to personal/noncommercial purposes and require permission for reuse. Published stream URLs alone do not establish permission to monetize. Obtain express commercial permission before enabling live ads or making worldwide content-rights attestations.
+Official repository README states that the radio streams public MDK releases from Internet Archive and that MDK music is CC BY 3.0 unless otherwise noted. Source manifest: https://raw.githubusercontent.com/sigilabcodex/mdk-space-radio/main/catalog/radio-manifest.json . All 149 releases and 1099 tracks in the inspected manifest declare https://creativecommons.org/licenses/by/3.0/ . This license permits commercial sharing, with appropriate attribution and links, and no additional restrictions. This is published license evidence, not a worldwide warranty covering unrelated rights or a promise of perpetual stream availability.
 
-The app uses the same official hostname and paths over HTTPS. Network redirects remain broadcaster-controlled. No Radio Browser API or unrestricted custom stream entry remains. Previously saved noncatalog stations and favorites are removed from the app state during migration. Playback also enforces exact catalog membership.
+The app bundles only the verified release IDs, original source pages and license URLs in MDKLicensedReleases.json. It shows the current track/album, full group credits, original-source link and license link. The audio is played directly and is not modified by this app. No endorsement is claimed. Audio is not behind a paywall and no DRM is added by the app.
 
-## Catalog
+Before playback and every 20 seconds during playback, https://radio.mdkband.com/now-playing.json must identify MDK, a known licensed release, its exact original source page, nonempty title/album, and fresh metadata. Unknown releases or unavailable/stale/invalid metadata stop playback. Newly added or differently licensed albums require a new reviewed catalog; they are not automatically enabled.
 
-- Radio 1: https://icecast.vrtcdn.be/radio1-high.mp3
-- Radio 1 Classics: https://icecast.vrtcdn.be/radio1_classics-high.mp3
-- Radio Bene: https://icecast.vrtcdn.be/radiobene-high.mp3
-- Radio 2 Antwerpen: https://icecast.vrtcdn.be/ra2ant-high.mp3
-- Radio 2 Limburg: https://icecast.vrtcdn.be/ra2lim-high.mp3
-- Radio 2 Oost-Vlaanderen: https://icecast.vrtcdn.be/ra2ovl-high.mp3
-- Radio 2 Vlaams-Brabant: https://icecast.vrtcdn.be/ra2vlb-high.mp3
-- Radio 2 West-Vlaanderen: https://icecast.vrtcdn.be/ra2wvl-high.mp3
-- Radio 2 Relax: https://icecast.vrtcdn.be/radio2_relax-high.mp3
-- Klara: https://icecast.vrtcdn.be/klara-high.mp3
-- Klara Continuo: https://icecast.vrtcdn.be/klaracontinuo-high.mp3
-- De Tijdloze: https://icecast.vrtcdn.be/stubru_tijdloze-high.mp3
-- Studio Brussel: https://icecast.vrtcdn.be/stubru-high.mp3
-- Studio Brussel Bruut: https://icecast.vrtcdn.be/stubru_bruut-high.mp3
-- Studio Brussel De Jaren Nul: https://icecast.vrtcdn.be/stubru_dejarennul-high.mp3
-- Studio Brussel Vuurland: https://icecast.vrtcdn.be/stubru_tgs-high.mp3
-- Studio Brussel UNTZ: https://icecast.vrtcdn.be/stubru_untz-high.mp3
-- MNM: https://icecast.vrtcdn.be/mnm-high.mp3
-- MNM Hits: https://icecast.vrtcdn.be/mnm_hits-high.mp3
-- Ketnet Hits: https://icecast.vrtcdn.be/ketnetradio-high.mp3
-- VRT NWS: https://icecast.vrtcdn.be/vrtnws-high.mp3
+Publisher verification, store review, privacy disclosures, developer-domain association and app-ads.txt crawler verification are separate from the audio license and are not declared complete. The rights flag refers only to this documented closed music catalog. Live commercial advertising is still blocked by RadioPublisherSetupComplete=false.
 
-## Exclusions
-
-A directory listing or another app's use is not evidence of permission. SomaFM, for example, explicitly declines new third-party clients: https://somafm.com/legal/tos.html . Romanian and other stations remain excluded until a suitable permission is documented.
-
-## Validation limits
-
-Official publication verified. Runtime availability and territory restrictions can change; see current CI validation results separately. These terms support catalog inclusion, not a guarantee of App Store approval.
+Manifest SHA-256: e6b1b6cec82e412cc5b523829431dff84a1eaef47ddaa484713bc57e08531017
