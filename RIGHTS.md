@@ -1,15 +1,11 @@
-# Free commercial-use music register — MDK catalog
+# Radio 43 — source and permission register
 
-Reviewed 4 November 2026. No paid license or subscription purchased. VRT removed.
+Reviewed 10 November 2026. Free app with no ads, purchases, recording or rehosting. No paid license purchased.
 
-Enabled source: MDK Space Radio, https://radio.mdkband.com/stream.mp3 . The official player credits music to MDK (Mik Schuppin, Diego Madero & Kai Kraatz), links CC BY 3.0, and links its canonical source repository https://github.com/sigilabcodex/mdk-space-radio . We use no artist logos, artwork, or frontend code.
+## VRT — 21 direct streams
+Official source: https://www.vrt.be/nl/ons-aanbod/streamingslinks-radio . VRT explicitly publishes streaming URLs so listeners can continue listening using smaller apps and services. We rely on this specific publication for direct unmodified listening in this free, non-monetized app. General terms: https://www.vrt.be/nl/info/gebruiksvoorwaarden . This is not a commercial music license, ownership transfer, endorsement, or permission to record, remix, rehost, copy artwork or use logos. Broadcaster-owned ads remain in the unchanged stream. Territory restrictions and availability remain provider-controlled. Recheck permission before any future monetization.
 
-Official repository README states that the radio streams public MDK releases from Internet Archive and that MDK music is CC BY 3.0 unless otherwise noted. Source manifest: https://raw.githubusercontent.com/sigilabcodex/mdk-space-radio/main/catalog/radio-manifest.json . All 149 releases and 1099 tracks in the inspected manifest declare https://creativecommons.org/licenses/by/3.0/ . This license permits commercial sharing, with appropriate attribution and links, and no additional restrictions. This is published license evidence, not a worldwide warranty covering unrelated rights or a promise of perpetual stream availability.
+## MDK Space Radio
+Music by MDK — Mik Schuppin, Diego Madero & Kai Kraatz. Original music published under CC BY 3.0 at https://radio.mdkband.com/ and https://github.com/sigilabcodex/mdk-space-radio . The bundled register contains 149 source/license records. Live metadata must match a reviewed release, original archive.org source and fresh timestamp; invalid/unavailable metadata stops only MDK playback. Attribution and original source/license links are displayed. No frontend code, artist logos or artwork copied. No endorsement. Notebook saves text references only, never audio.
 
-The app bundles only the verified release IDs, original source pages and license URLs in MDKLicensedReleases.json. It shows the current track/album, full group credits, original-source link and license link. The audio is played directly and is not modified by this app. No endorsement is claimed. Audio is not behind a paywall and no DRM is added by the app.
-
-Before playback and every 20 seconds during playback, https://radio.mdkband.com/now-playing.json must identify MDK, a known licensed release, its exact original source page, nonempty title/album, and fresh metadata. Unknown releases or unavailable/stale/invalid metadata stop playback. Newly added or differently licensed albums require a new reviewed catalog; they are not automatically enabled.
-
-Publisher verification, store review, privacy disclosures, developer-domain association and app-ads.txt crawler verification are separate from the audio license and are not declared complete. The rights flag refers only to this documented closed music catalog. Live commercial advertising is still blocked by RadioPublisherSetupComplete=false.
-
-Manifest SHA-256: e6b1b6cec82e412cc5b523829431dff84a1eaef47ddaa484713bc57e08531017
+Provider publication supports the described use but does not guarantee App Store approval or constitute a worldwide warranty of third-party rights.
