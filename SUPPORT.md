@@ -1,4 +1,4 @@
-# Radio Online Pro support
+# Radio 43 support
 
 Contact: valentin.nedelcu@icloud.com
 

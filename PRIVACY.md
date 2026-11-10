@@ -1,4 +1,4 @@
-# Radio Online Pro — Privacy Policy
+# Radio 43 — Privacy Policy
 
 Effective date: 4 November 2026. Applies to iOS version 1.0, bundle com.radioonlinepro.player.
 

@@ -1,7 +1,11 @@
-# Radio Online Pro — free-license catalog
+# Radio 43
 
-Native iPhone radio player. Current catalog: one MDK Space Radio channel (experimental electronic music), with original MDK music declared CC BY 3.0. No VRT stations or paid licensing providers. Do not confuse 149 albums/1099 tracks in the source archive with a count of radio stations.
+Native iPhone radio application, previously Radio Online Pro. Bundle ID com.radioonlinepro.player is unchanged.
 
-Features: favorites, local search, background audio, lock-screen controls, AirPlay, sleep timer, Google AdMob/UMP test integration. Current-track credits and license/source links are displayed. Playback requires verified current metadata and a reviewed album license record. Old VRT saved stations/favorites are removed during migration.
+The source ZIP includes the native listening notebook, local personal notes, attribution sharing, and searchable register of 149 MDK releases. One audio channel is enabled: MDK Space Radio, with CC BY 3.0 provenance verification. 149 albums are not 149 stations.
 
-See RIGHTS.md for primary evidence and conditions, PRIVACY.md for network processing, and MONETIZATION.md for outstanding provider/store setup. Commercial advertising remains OFF while publisher readiness is false. This candidate passed Xcode simulator CI and was successfully archived/exported/uploaded as build 6. Its actual simulator screenshot is in Preview. Apple processing/group assignment and current App Store selection are not reverified because Apple reauthentication did not complete. See VALIDATION.txt. No App Store publication or live revenue is claimed.
+The previous source passed simulator CI and was signed/uploaded to Apple as 1.0 (7) on 10 November 2026. This rename candidate requires fresh CI and build 8. No App Store approval is claimed.
+
+Previous VRT channels have not been restored for monetized in-app playback: the broadcaster publishes direct stream addresses for other apps, but its general terms restrict commercial reuse. No paid license was purchased. See RIGHTS.md.
+
+Commercial advertising remains disabled pending publisher readiness. App Review rejection under 4.3/4.2.6 remains unresolved; a rename alone does not resolve it.
