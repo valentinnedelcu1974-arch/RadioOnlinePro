@@ -1,0 +1,47 @@
+workflows:
+  radio-validation:
+    name: Radio 43 simulator tests
+    instance_type: mac_mini_m2
+    environment:
+      xcode: latest
+    scripts:
+      - name: Generate project and test
+        script: |
+          set -eu
+          unzip -oq RadioOnlinePro_iOS_Source.zip
+          cd RadioOnlinePro
+          command -v xcodegen || brew install xcodegen
+          xcodegen generate
+          DEVICE=$(xcrun simctl list devices available -j | python3 -c 'import sys,json; print(next(d["udid"] for group in json.load(sys.stdin)["devices"].values() for d in group if d["name"].startswith("iPhone")))')
+          xcodebuild test -scheme RadioOnlinePro -destination "platform=iOS Simulator,id=$DEVICE" -parallel-testing-enabled NO -resultBundlePath tests.xcresult CODE_SIGNING_ALLOWED=NO
+    artifacts:
+      - RadioOnlinePro/tests.xcresult
+  radio-testflight:
+    name: Radio 43 TestFlight
+    instance_type: mac_mini_m2
+    integrations:
+      app_store_connect: Mercury Power Twin Cloud
+    environment:
+      xcode: latest
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.radioonlinepro.player
+    scripts:
+      - name: Generate release project
+        script: |
+          set -eu
+          unzip -oq RadioOnlinePro_iOS_Source.zip
+          cd RadioOnlinePro
+          command -v xcodegen || brew install xcodegen
+          LATEST=$(app-store-connect get-latest-testflight-build-number 6830363430)
+          [[ "$LATEST" =~ ^[0-9]+$ ]]
+          sed -i '' "s/CURRENT_PROJECT_VERSION: '1'/CURRENT_PROJECT_VERSION: '$((LATEST + 1))'/" project.yml
+          xcodegen generate
+          xcode-project use-profiles
+          xcode-project build-ipa --project RadioOnlinePro.xcodeproj --scheme RadioOnlinePro
+    artifacts:
+      - RadioOnlinePro/build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
