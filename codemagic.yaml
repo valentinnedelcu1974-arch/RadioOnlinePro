@@ -24,8 +24,10 @@ workflows:
     environment:
       xcode: latest
       ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.radioonlinepro.player
+        provisioning_profiles:
+          - radio43_codemagic_appstore
+        certificates:
+          - mercury_power_twin_reused_distribution
     scripts:
       - name: Generate release project
         script: |
@@ -37,6 +39,8 @@ workflows:
           [[ "$LATEST" =~ ^[0-9]+$ ]]
           sed -i '' "s/CURRENT_PROJECT_VERSION: '1'/CURRENT_PROJECT_VERSION: '$((LATEST + 1))'/" project.yml
           xcodegen generate
+          DEVICE=$(xcrun simctl list devices available -j | python3 -c 'import sys,json; print(next(d["udid"] for group in json.load(sys.stdin)["devices"].values() for d in group if d["name"].startswith("iPhone")))')
+          xcodebuild test -scheme RadioOnlinePro -destination "platform=iOS Simulator,id=$DEVICE" -parallel-testing-enabled NO -resultBundlePath tests.xcresult CODE_SIGNING_ALLOWED=NO
           xcode-project use-profiles
           xcode-project build-ipa --project RadioOnlinePro.xcodeproj --scheme RadioOnlinePro
     artifacts:
